@@ -1,0 +1,56 @@
+#FAQ {
+	align-items: center;
+	h1 {
+		font-size: 3vw;
+	}
+	h2 {
+		font-size: 1.5vw;
+		text-align: justify;
+		transform: scaleY(0);
+		height: 0;
+		opacity: 0;
+		//transition: 1s;
+		transition-property: height, opacity, transform;
+		transition-duration: 1s;
+
+		display: block;
+	}
+	// h2:hover {
+	// 	height: 200px;
+	// }
+	h2.active {
+		transform: scaleY(1);
+		opacity: 1;
+
+		height: 15vw;
+		transform-origin: top;
+	}
+	button {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		margin: 2vw 0;
+		left: -10%;
+		width: 120%;
+		padding: 2vw;
+		border: none;
+		border-radius: 10px;
+		background-color: white;
+		font-size: 1.5vw;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		cursor: pointer;
+	}
+}
+.arrow {
+	transform: rotate(180deg);
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid black;
+	transition: 1s;
+}
+.arrow.active {
+	transform: rotate(0deg);
+}

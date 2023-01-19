@@ -1,0 +1,107 @@
+#featuresPage {
+	background-color: white;
+	border-radius: 5vw;
+	padding: 5vw;
+}
+#yellowStar {
+	background-image: url("../assets/YellowStar.svg");
+	background-size: 14vw 14vw;
+	width: 14vw;
+	height: 14vw;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	//justify-content: center;
+	color: #6e905d;
+	div {
+		display: flex;
+		flex-direction: row;
+		align-self: center;
+		top: 1.5vw;
+		position: relative;
+
+		.star {
+			margin: 0 1vw;
+			font-size: 3vw;
+			top: 1.3vw;
+		}
+	}
+	h1 {
+		font-size: 4vw;
+	}
+	h2 {
+		font-size: 2.7vw;
+	}
+	h3 {
+		font-size: 1.6vw;
+	}
+}
+
+#noCode {
+	background-color: #ff4005;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	text-align: center;
+	border: 1px solid white;
+	outline: 3px solid #ff4005;
+	padding: 1vw 2vw;
+	width: 60%;
+	color: white;
+	transform: rotate(-15deg);
+	h1 {
+		font-size: 1.5vw;
+	}
+	h2 {
+		font-size: 2vw;
+	}
+}
+
+#mainGallery {
+	display: block;
+	#images {
+		display: flex;
+		overflow: hidden;
+		height: 80vw;
+		align-items: center;
+
+		img {
+			transition: 1s;
+			transform: translateX(140%);
+			width: 25vw;
+			margin: 0 4vw;
+			left: 40%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: nowrap;
+			opacity: 0.5;
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+	#bullets {
+		display: flex;
+		width: 25%;
+		align-self: center;
+		margin: 0 auto;
+		justify-content: space-between;
+		.bullet {
+			height: 2vw;
+			width: 2vw;
+			border-radius: 50%;
+			background-color: rgb(160, 160, 160);
+			transition: 1s;
+			//cursor: pointer;
+			// &:hover {
+			// 	border: 3px solid gray;
+			// }
+		}
+		.bullet.active {
+			background-color: rgb(66, 66, 66);
+			transform: scale(1.3);
+		}
+	}
+}

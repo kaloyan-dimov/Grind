@@ -1,0 +1,39 @@
+#footer {
+	background-color: #1e1e1e;
+	color: white;
+	width: 100%;
+	border-radius: 6vw 6vw 0 0;
+	padding: 5vw 9vw 1vw 9vw;
+	img {
+		height: 3vw;
+	}
+	h4 {
+		font-size: 2vw;
+		padding-bottom: 3vw;
+	}
+	h5 {
+		font-size: 1vw;
+		padding-bottom: 2vw;
+	}
+	#footerTop {
+		display: flex;
+		justify-content: space-between;
+	}
+	#footerLogo {
+		display: flex;
+	}
+	#divider {
+		height: 1px;
+		border-width: 0;
+		border-top: 2px solid #bbb;
+		border-radius: 5px;
+	}
+	hr {
+		margin-top: 5vw;
+		margin-bottom: 2vw;
+	}
+	#footerBottom {
+		display: flex;
+		font-size: 2vw;
+	}
+}

@@ -1,0 +1,32 @@
+#intro {
+	margin-top: 15vw;
+	align-items: center;
+	justify-content: center;
+	.miniContainer {
+		align-items: center;
+		justify-content: center;
+		align-self: center;
+		#wooCommerceDiv {
+			height: 3vw;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 1vw;
+			img {
+				height: 1.5vw;
+			}
+		}
+		.star {
+			font-size: 2vw;
+			top: 0.35vw;
+			margin-right: 0.5vw;
+			color: #5965ce;
+		}
+	}
+	button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+	}
+}

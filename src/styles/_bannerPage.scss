@@ -1,0 +1,38 @@
+.banners {
+	position: absolute;
+	display: flex;
+	text-align: center;
+	h3 {
+		width: 25vw;
+		transform: translateX(160vw);
+		transition: 0.5s;
+	}
+	.star {
+		transform: translateX(160vw);
+		transition: 0.5s;
+	}
+	transform: translateX(-1vw);
+
+	#banner {
+		display: flex;
+		align-items: center;
+		background-color: #0d1321;
+		color: white;
+		padding: 15px 0;
+		transform: rotate(-3deg);
+		.star {
+			color: #d8fd56;
+		}
+	}
+	#banner2 {
+		display: flex;
+		align-items: center;
+		background-color: #d8fd56;
+		color: #071013;
+		padding: 15px 0;
+		transform: rotate(3deg);
+		.star {
+			color: #6d79e2;
+		}
+	}
+}

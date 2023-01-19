@@ -1,0 +1,89 @@
+#elenaPage {
+	#heartContainer {
+		display: flex;
+		h3 {
+			color: white;
+			font-size: 3vw;
+		}
+		img {
+			height: 3vw;
+		}
+	}
+}
+
+#smileyFace {
+	height: 12vw;
+}
+
+#realPeople {
+	background-color: #e0ff6c;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	text-align: center;
+	border-radius: 25px;
+	border: 1px solid #808f85;
+	outline: 3px solid #e0ff6c;
+	width: 20vw;
+	transform: rotate(15deg);
+	color: #808f85;
+	div {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		h1 {
+			font-size: 1.5vw;
+		}
+	}
+	h2 {
+		font-size: 2vw;
+	}
+}
+#secondaryGallery {
+	display: block;
+	#secondaryImages {
+		display: flex;
+		overflow: hidden;
+		height: 80vw;
+		align-items: center;
+
+		img {
+			transition: 1s;
+			transform: translateX(140%);
+			width: 25vw;
+			margin: 0 4vw;
+			left: 40%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: nowrap;
+			opacity: 0.5;
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+	#secondaryBullets {
+		display: flex;
+		width: 25%;
+		align-self: center;
+		margin: 0 auto;
+		justify-content: space-between;
+		.bullet {
+			height: 2vw;
+			width: 2vw;
+			border-radius: 50%;
+			background-color: rgb(160, 160, 160);
+			transition: 1s;
+			//cursor: pointer;
+			// &:hover {
+			// 	border: 3px solid gray;
+			// }
+		}
+		.bullet.active {
+			background-color: rgb(66, 66, 66);
+			transform: scale(1.3);
+		}
+	}
+}
