@@ -6,6 +6,7 @@
 	padding: 5vw 9vw 1vw 9vw;
 	img {
 		height: 3vw;
+		margin-right: 1vw;
 	}
 	h4 {
 		font-size: 2vw;
@@ -35,5 +36,12 @@
 	#footerBottom {
 		display: flex;
 		font-size: 2vw;
+		h6 {
+			margin-right: 4vw;
+		}
+		h5 {
+			margin-right: 1vw;
+			text-decoration: underline;
+		}
 	}
 }

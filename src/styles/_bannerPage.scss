@@ -1,15 +1,19 @@
 .banners {
-	position: absolute;
+	//position: absolute;
 	display: flex;
 	text-align: center;
+	width: 100vw;
+	overflow: hidden;
+	padding: 2vw;
 	h3 {
-		width: 25vw;
+		width: 12vw;
 		transform: translateX(160vw);
 		transition: 0.5s;
 	}
 	.star {
 		transform: translateX(160vw);
 		transition: 0.5s;
+		width: 12vw;
 	}
 	transform: translateX(-1vw);
 
@@ -20,6 +24,7 @@
 		color: white;
 		padding: 15px 0;
 		transform: rotate(-3deg);
+		z-index: 1;
 		.star {
 			color: #d8fd56;
 		}
@@ -31,6 +36,8 @@
 		color: #071013;
 		padding: 15px 0;
 		transform: rotate(3deg);
+		z-index: 0;
+
 		.star {
 			color: #6d79e2;
 		}

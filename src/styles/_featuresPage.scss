@@ -60,6 +60,7 @@
 
 #mainGallery {
 	display: block;
+	user-select: none;
 	#images {
 		display: flex;
 		overflow: hidden;

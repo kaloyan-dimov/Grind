@@ -82,17 +82,143 @@ secondaryGalleryOne.src = secondaryGalleryOneSrc;
 secondaryGalleryTwo.src = secondaryGalleryTwoSrc;
 secondaryGalleryThree.src = secondaryGalleryThreeSrc;
 
-// Main Gallery functionality
-const mainGalleryImages = document.getElementById("images");
-const mainGalleryBullets = document.getElementById("bullets");
+// function printMousePos(e) {
+// 	var cursorX = e.clientX;
+// 	var cursorY = e.clientY;
+// 	console.log("X: " + cursorX + " Y: " + cursorY);
+// }
+// document.addEventListener("mouseup", printMousePos);
+// document.addEventListener("mousedown", printMousePos);
+
+// function trackMousePos() {}
+// document.addEventListener("mousedown", () => {
+// 	onmousemove = event => {
+// 		var cursorX = event.clientX;
+// 		var cursorY = event.clientY;
+// 		console.log("X: " + cursorX + " Y: " + cursorY);
+// 		onmouseup = e => {
+// 			e.preventDefault();
+// 		};
+// 	};
+// });
+// document.addEventListener("mousedown", () => {
+// 	document.addEventListener("mousemove", event => {
+// 		var cursorX = event.clientX;
+// 		var cursorY = event.clientY;
+// 		console.log("X: " + cursorX + " Y: " + cursorY);
+// 	});
+// });
+// "mousemove mousemove".split(" ").forEach(e => {
+// 	document.addEventListener(e, event => {
+// 		var cursorX = event.clientX;
+// 		var cursorY = event.clientY;
+// 		console.log("X: " + cursorX + " Y: " + cursorY);
+// 	});
+// });
+
+// WROKS!!!!!!!!
+// function moveGallery(event) {
+// 	var cursorX = event.clientX;
+// 	var cursorY = event.clientY;
+// 	console.log("X: " + cursorX + " Y: " + cursorY);
+// }
+
+// window.onmousedown = () => {
+// 	window.addEventListener("mousemove", move);
+// 	//console.log("mouse button down");
+// };
+// window.onmouseup = () => {
+// 	window.removeEventListener("mousemove", move);
+// 	console.log("mouse button up");
+// };
 
 // mainGalleryImages.addEventListener("drag", e => {
 // 	console.log(e.clientX);
 // 	//galImages.style.transform = `translateX(${calculated + e.clientX}px) scale(1)`;
 // });
+
+// Main Gallery functionality
+const mainGalleryImages = document.getElementById("images");
+const mainGalleryBullets = document.getElementById("bullets");
+
 const mainGalleryImagesChildren = mainGalleryImages.childNodes;
 const mainGalleryBulletsChildren =
 	mainGalleryBullets.querySelectorAll(".bullet");
+
+let isDragStart = false,
+	prevPageX,
+	prevScrollLeft;
+
+const dragStart = e => {
+	isDragStart = true;
+	prevPageX = e.pageX;
+	prevScrollLeft = mainGalleryImages.scrollLeft;
+};
+
+const dragging = e => {
+	if (!isDragStart) return;
+	e.preventDefault();
+	let positionDiff = e.pageX - prevPageX;
+	mainGalleryImages.scrollLeft = prevScrollLeft - positionDiff;
+};
+
+const dragStop = () => {
+	isDragStart = false;
+};
+
+mainGalleryImages.addEventListener("mousedown", dragStart);
+mainGalleryImages.addEventListener("mousemove", dragging);
+mainGalleryImages.addEventListener("mouseup", dragStop);
+
+// function moveGallery(event) {
+// 	var cursorX = event.clientX;
+// 	//console.log("X: " + cursorX);
+// 	console.log(this.oldX > cursorX);
+// 	//let style = window.getComputedStyle(mainGalleryImagesChildren[1]);
+// 	let style2 = mainGalleryImagesChildren[1].getBoundingClientRect();
+
+// 	// console.log(
+// 	// 	"style.transform",
+// 	// 	style,
+// 	// 	"style.x",
+// 	// 	style.x,
+// 	// 	"style.rx",
+// 	// 	style.rx,
+// 	// 	"style.cx",
+// 	// 	style.cx
+// 	// );
+// 	console.log("style2", style2.x);
+// 	if (this.oldX > cursorX == true) {
+// 		console.log("condition1");
+// 		mainGalleryImagesChildren[1].style.transform = `translateX(${
+// 			style2.x - 300
+// 		}px) `;
+// 	} else {
+// 		console.log("condition2");
+// 		mainGalleryImagesChildren[1].style.transform = `translateX(${
+// 			style2.x + 100
+// 		}px) `;
+// 	}
+// 	this.oldX = cursorX;
+// }
+
+// mainGalleryImages.onmousedown = () => {
+// 	mainGalleryImages.addEventListener("mousemove", moveGallery);
+// 	console.log("touch down");
+// };
+// mainGalleryImages.onmouseup = () => {
+// 	mainGalleryImages.removeEventListener("mousemove", moveGallery);
+// 	console.log("touch up");
+// };
+
+// mainGalleryImages.ontouchstart = () => {
+// 	mainGalleryImages.addEventListener("touchstart", moveGallery);
+// 	//console.log("mouse button down");
+// };
+// mainGalleryImages.ontouchend = () => {
+// 	mainGalleryImages.removeEventListener("touchstart", moveGallery);
+// 	console.log("mouse button up");
+// };
 
 Array.from(mainGalleryImagesChildren).forEach((child, index) => {
 	mainGalleryImagesChildren[1].style.opacity = "1";
@@ -100,7 +226,7 @@ Array.from(mainGalleryImagesChildren).forEach((child, index) => {
 		window.innerWidth / 3
 	}px) scale(1.5)`;
 	child.addEventListener("click", e => {
-		focusImg(child, index, mainGalleryImages, mainGalleryBulletsChildren);
+		clickFocusImg(child, index, mainGalleryImages, mainGalleryBulletsChildren);
 	});
 });
 
@@ -118,7 +244,7 @@ Array.from(secondaryGalleryImagesChildren).forEach((child, index) => {
 		window.innerWidth / 3
 	}px) scale(1.5)`;
 	child.addEventListener("click", e => {
-		focusImg(
+		clickFocusImg(
 			child,
 			index,
 			secondaryGalleryImages,
@@ -132,12 +258,12 @@ Array.from(secondaryGalleryImagesChildren).forEach((child, index) => {
 // 		focusMainImg(child, index);
 // 	});
 // });
-function focusImg(child, index, images, bullets) {
+function clickFocusImg(child, index, images, bullets) {
 	let galImages = images.querySelectorAll("img");
 	let calculated =
 		window.innerWidth / 3.5 - ((index - 1) * window.innerWidth) / 6;
 	//console.log(mainGalleryBulletsChildren);
-	console.log(index);
+	//console.log(index);
 	bullets.forEach(bC => {
 		bC.classList.remove("active");
 	});
@@ -230,4 +356,11 @@ Array.from(questionsFAQ).forEach((question, index) => {
 		answersFAQ[index].classList.toggle("active");
 		//answersFAQ[index].style.display = "none";
 	});
+});
+
+// Navbar functionality
+const navBar = document.getElementById("navBar").querySelector("div");
+const navSelection = document.getElementById("navSelection");
+navBar.addEventListener("click", () => {
+	navSelection.classList.toggle("active");
 });

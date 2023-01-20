@@ -6,15 +6,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FrontEnd Mobile Task</title>
-    <script defer src="bundle2b0b61c872f82090151c.js"></script></head>
+    <script defer src="bundle1108328b85310b16d1f1.js"></script></head>
 
     <body>
         <!-- Navigation -->
-        <div class="navBar">
+        <div id="navBar">
             <div><img id="navImg" src="./assets/logo.svg">
                 <h1> GRIND | beyond cart</h1>
             </div>
             <button class="requestDemo">Request a demo</button>
+        </div>
+        <div id="navSelection">
+            <div id="back"></div>
+            <ul>
+                <li>Home</li>
+                <li>Features</li>
+                <li>Data Analysis</li>
+                <li>Best For</li>
+                <li>Live Example</li>
+                <li>Recurring Revenue</li>
+                <li>FAQ</li>
+            </ul>
         </div>
         <!-- Intro -->
         <div class="container mb-10vw" id="intro">
@@ -69,12 +81,12 @@
             </div>
             <div id="mainGallery">
                 <div id="images">
-                    <img id="mainGalleryOne">
-                    <img id="mainGalleryTwo">
-                    <img id="mainGalleryThree">
-                    <img id="mainGalleryFour">
-                    <img id="mainGalleryFive">
-                    <img id="mainGallerySix">
+                    <img draggable="false" id="mainGalleryOne">
+                    <img draggable="false" id="mainGalleryTwo">
+                    <img draggable="false" id="mainGalleryThree">
+                    <img draggable="false" id="mainGalleryFour">
+                    <img draggable="false" id="mainGalleryFive">
+                    <img draggable="false" id="mainGallerySix">
                 </div>
                 <div id="bullets">
                     <div class="bullet active"></div>
@@ -187,45 +199,41 @@
                 <h1>Beyond Cart works <span class="yellowBG">best</span> but not only for</h1>
             </div>
         </div>
-        <div class="container">
-            <div class="banners">
-                <div id="banner">
-                    <h3>Fashion & Apparel</h3>
-                    <span class="star">*</span>
-                    <h3>Beauty & Cosmetics</h3>
-                    <span class="star">*</span>
-                    <h3>Food & Beverage</h3>
-                    <span class="star">*</span>
-                    <h3>Health & Self-care</h3>
-                    <span class="star">*</span>
-                    <h3>Automobiles & Repair</h3>
-                    <span class="star">*</span>
-                    <h3>Something & Stuff</h3>
-                </div>
+        <div class="container banners">
+            <div id="banner">
+                <h3>Fashion & Apparel</h3>
+                <span class="star">*</span>
+                <h3>Beauty & Cosmetics</h3>
+                <span class="star">*</span>
+                <h3>Food & Beverage</h3>
+                <span class="star">*</span>
+                <h3>Health & Self-care</h3>
+                <span class="star">*</span>
+                <h3>Automobiles & Repair</h3>
+                <span class="star">*</span>
+                <h3>Something & Stuff</h3>
             </div>
         </div>
-        <div class="container  mb-30vw">
-            <div class="banners">
-                <div id="banner2">
-                    <h3>Fashion & Apparel</h3>
-                    <span class="star">*</span>
-                    <h3>Beauty & Cosmetics</h3>
-                    <span class="star">*</span>
-                    <h3>Food & Beverage</h3>
-                    <span class="star">*</span>
-                    <h3>Health & Self-care</h3>
-                    <span class="star">*</span>
-                    <h3>Automobiles & Repair</h3>
-                    <span class="star">*</span>
-                    <h3>Something & Stuff</h3>
-                </div>
+        <div class="container banners mb-30vw ">
+            <div id="banner2">
+                <h3>Fashion & Apparel</h3>
+                <span class="star">*</span>
+                <h3>Beauty & Cosmetics</h3>
+                <span class="star">*</span>
+                <h3>Food & Beverage</h3>
+                <span class="star">*</span>
+                <h3>Health & Self-care</h3>
+                <span class="star">*</span>
+                <h3>Automobiles & Repair</h3>
+                <span class="star">*</span>
+                <h3>Something & Stuff</h3>
             </div>
         </div>
         <!-- Elena Example -->
         <div class="conicGradient mb-10vw p-2vw" id="elenaPage">
             <div class="container ">
                 <div class="miniContainerFiller"></div>
-                <div class="miniContainer whiteText">
+                <div class="miniContainer whiteText mb-5vw">
                     <h1>Beyond Cart helped Elena skyrocket her business</h1>
                     <h2>See how Elena Art Nails increases customer engagement and improves brand loyalty with Beyond Cart</h2>
                 </div>
@@ -323,7 +331,7 @@
             </div>
             <hr id="divider">
             <div id="footerBottom">
-                <h5>@2022 BeyondCart. All rights reserved</h5>
+                <h6>@2022 BeyondCart. All rights reserved</h6>
                 <h5>Privacy Policy</h5>
                 <h5>Terms of Use</h5>
             </div>
