@@ -144,7 +144,7 @@ const mainGalleryBullets = document.getElementById("bullets");
 const mainGalleryImagesChildren = mainGalleryImages.childNodes;
 const mainGalleryBulletsChildren =
 	mainGalleryBullets.querySelectorAll(".bullet");
-
+/* WORKING DRAG FUNCTIONALITY, not compatible with click events
 let isDragStart = false,
 	prevPageX,
 	prevScrollLeft;
@@ -169,7 +169,7 @@ const dragStop = () => {
 mainGalleryImages.addEventListener("mousedown", dragStart);
 mainGalleryImages.addEventListener("mousemove", dragging);
 mainGalleryImages.addEventListener("mouseup", dragStop);
-
+*/
 // function moveGallery(event) {
 // 	var cursorX = event.clientX;
 // 	//console.log("X: " + cursorX);
@@ -283,22 +283,32 @@ const dataAnalysis = document.getElementById("dataNav");
 const dataAnalysisChildren = dataAnalysis.querySelectorAll("li");
 const dataContainer = document.querySelectorAll(".dataContainer");
 
+console.log(
+	"dataAnalysisChildren",
+	dataAnalysisChildren,
+	"dataContainer",
+	dataContainer
+);
+
 Array.from(dataAnalysisChildren).forEach((child, index) => {
 	child.addEventListener("click", () => {
 		//console.log("index", index);
 		dataAnalysisChildren.forEach(dC => {
 			dC.classList.remove("active");
 		});
-		dataContainer.forEach(dC => {
-			dC.classList.remove("active");
+
+		dataContainer[index].scrollIntoView({
+			behavior: "smooth",
+			block: "center",
 		});
+		//navSelection.classList.toggle("active");
+
 		child.classList.add("active");
-		dataContainer[index].classList.add("active");
 	});
 });
 
-console.log("dataAnalysisChildren", dataAnalysisChildren);
-console.log("dataContainer", dataContainer);
+// console.log("dataAnalysisChildren", dataAnalysisChildren);
+// console.log("dataContainer", dataContainer);
 
 // setInterval(() => {
 // 	//let banner = document.getElementById("banner");
@@ -361,6 +371,56 @@ Array.from(questionsFAQ).forEach((question, index) => {
 // Navbar functionality
 const navBar = document.getElementById("navBar").querySelector("div");
 const navSelection = document.getElementById("navSelection");
+const navSelectionItems = navSelection.querySelectorAll("li");
+
+const intro = document.getElementById("intro");
+const featuresPage = document.getElementById("featuresPage");
+const dataAnalysisPage = document.getElementById("dataAnalysisPage");
+const bannersNavPin = document.getElementById("bannersNavPin");
+const elenaPage = document.getElementById("elenaPage");
+const recurringRevenue = document.getElementById("recurringRevenue");
+//let itemPosition;
+function navScroll(item) {
+	// itemPosition = item.getBoundingClientRect().top;
+	// console.log("itemPosition", itemPosition);
+	// window.scrollTo({
+	// 	top: itemPosition,
+	// 	behavior: "smooth",
+	// });
+	item.scrollIntoView({ behavior: "smooth", block: "start" });
+	navSelection.classList.toggle("active");
+}
+navSelectionItems.forEach((item, index) => {
+	item.addEventListener("click", () => {
+		console.log(index, "clicked");
+		switch (index) {
+			case 0:
+				navScroll(intro);
+				break;
+			case 1:
+				navScroll(featuresPage);
+				break;
+			case 2:
+				navScroll(grayStar);
+				break;
+			case 3:
+				navScroll(bannersNavPin);
+				break;
+			case 4:
+				navScroll(elenaPage);
+				break;
+			case 5:
+				navScroll(recurringRevenue);
+				break;
+			case 6:
+				navScroll(FAQ);
+				break;
+			default:
+				console.log("something went wrong");
+				break;
+		}
+	});
+});
 navBar.addEventListener("click", () => {
 	navSelection.classList.toggle("active");
 });
