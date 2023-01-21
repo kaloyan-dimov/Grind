@@ -73,19 +73,21 @@ h3 {
 	position: relative;
 	white-space: pre;
 	&::after {
+		display: block;
 		background-color: #d8fd56;
 		position: absolute;
 		z-index: -1;
 		top: 0;
-		left: -5px;
+		left: -1vw;
 		content: "";
 		width: 100%;
-		height: 40px;
-		border-radius: 10px;
-		padding: 0 5px;
+		height: 5vw;
+		border-radius: 1vw;
+		padding: 0 1vw;
 		transform: rotate(-1deg);
 	}
 }
+//.yellowBG
 .whiteText {
 	color: white;
 }
