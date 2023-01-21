@@ -1,19 +1,21 @@
 .banners {
-	//position: absolute;
+	position: relative;
 	display: flex;
 	text-align: center;
-	width: 100vw;
+	width: 103vw;
 	overflow: hidden;
 	padding: 2vw;
+	left: -2vw;
 	h3 {
-		width: 12vw;
+		width: 22vw;
 		transform: translateX(160vw);
+		font-size: 2vw;
 		transition: 0.5s;
 	}
 	.star {
 		transform: translateX(160vw);
 		transition: 0.5s;
-		width: 12vw;
+		width: 22vw;
 	}
 	transform: translateX(-1vw);
 
@@ -22,9 +24,10 @@
 		align-items: center;
 		background-color: #0d1321;
 		color: white;
-		padding: 15px 0;
-		transform: rotate(-3deg);
+		padding: 4vw 0;
+		transform: rotate(-2deg);
 		z-index: 1;
+		left: -10vw;
 		.star {
 			color: #d8fd56;
 		}
@@ -34,8 +37,8 @@
 		align-items: center;
 		background-color: #d8fd56;
 		color: #071013;
-		padding: 15px 0;
-		transform: rotate(3deg);
+		padding: 4vw 0;
+		transform: rotate(2deg);
 		z-index: 0;
 
 		.star {

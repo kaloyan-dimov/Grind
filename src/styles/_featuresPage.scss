@@ -1,13 +1,13 @@
 #featuresPage {
 	background-color: white;
 	border-radius: 5vw;
-	padding: 5vw;
+	padding: 6.5vw 2.5vw;
 }
 #yellowStar {
 	background-image: url("../assets/YellowStar.svg");
-	background-size: 14vw 14vw;
-	width: 14vw;
-	height: 14vw;
+	background-size: 12vw 12vw;
+	width: 12vw;
+	height: 12vw;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -19,35 +19,37 @@
 		align-self: center;
 		top: 1.5vw;
 		position: relative;
+		margin-bottom: 0.5vw;
 
 		.star {
 			margin: 0 1vw;
-			font-size: 3vw;
+			font-size: 2vw;
 			top: 1.3vw;
 		}
 	}
 	h1 {
-		font-size: 4vw;
+		font-size: 3vw;
 	}
 	h2 {
-		font-size: 2.7vw;
+		font-size: 2.2vw;
 	}
 	h3 {
-		font-size: 1.6vw;
+		font-size: 1.2vw;
 	}
 }
 
 #noCode {
+	position: relative;
 	background-color: #ff4005;
-	border-radius: 10px;
+	border-radius: 1.5vw;
 	display: flex;
 	flex-direction: column;
+	top: -3vw;
 	align-self: center;
 	text-align: center;
 	border: 1px solid white;
-	outline: 3px solid #ff4005;
+	outline: 1px solid #ff4005;
 	padding: 1vw 2vw;
-	width: 60%;
 	color: white;
 	transform: rotate(-15deg);
 	h1 {
