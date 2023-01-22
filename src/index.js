@@ -1,6 +1,17 @@
 import "./styles/main.scss";
+import galleryFunction from "./js/galleryFunctionality.js";
+import dataAnalysis from "./js/dataAnalysisFunctionality.js";
+import bannersScroll from "./js/bannersFunctionality";
+import faqFunction from "./js/faqFunctionality";
+import navBarFunction from "./js/navbarFunctionality";
 
-// Icons and others
+galleryFunction();
+dataAnalysis();
+bannersScroll();
+faqFunction();
+navBarFunction();
+
+// Icons and widgets
 import logoImgSrc from "./assets/logo.svg";
 import wooCommerceSrc from "./assets/WooCommerce.svg";
 import winkFaceSrc from "./assets/winkFace.svg";
@@ -137,13 +148,6 @@ secondaryGalleryThree.src = secondaryGalleryThreeSrc;
 // 	//galImages.style.transform = `translateX(${calculated + e.clientX}px) scale(1)`;
 // });
 
-// Main Gallery functionality
-const mainGalleryImages = document.getElementById("images");
-const mainGalleryBullets = document.getElementById("bullets");
-
-const mainGalleryImagesChildren = mainGalleryImages.childNodes;
-const mainGalleryBulletsChildren =
-	mainGalleryBullets.querySelectorAll(".bullet");
 /* WORKING DRAG FUNCTIONALITY, not compatible with click events
 let isDragStart = false,
 	prevPageX,
@@ -220,92 +224,11 @@ mainGalleryImages.addEventListener("mouseup", dragStop);
 // 	console.log("mouse button up");
 // };
 
-Array.from(mainGalleryImagesChildren).forEach((child, index) => {
-	mainGalleryImagesChildren[1].style.opacity = "1";
-	mainGalleryImagesChildren[1].style.transform = `translateX(${
-		window.innerWidth / 3
-	}px) scale(1.5)`;
-	child.addEventListener("click", e => {
-		clickFocusImg(child, index, mainGalleryImages, mainGalleryBulletsChildren);
-	});
-});
-
-// Secondary Gallery  Functionality
-const secondaryGalleryImages = document.getElementById("secondaryImages");
-const secondaryGalleryBullets = document.getElementById("secondaryBullets");
-
-const secondaryGalleryImagesChildren = secondaryGalleryImages.childNodes;
-const secondaryGalleryBulletsChildren =
-	secondaryGalleryBullets.querySelectorAll(".bullet");
-
-Array.from(secondaryGalleryImagesChildren).forEach((child, index) => {
-	secondaryGalleryImagesChildren[1].style.opacity = "1";
-	secondaryGalleryImagesChildren[1].style.transform = `translateX(${
-		window.innerWidth / 3
-	}px) scale(1.5)`;
-	child.addEventListener("click", e => {
-		clickFocusImg(
-			child,
-			index,
-			secondaryGalleryImages,
-			secondaryGalleryBulletsChildren
-		);
-	});
-});
-
 // Array.from(mainGalleryBulletsChildren).forEach((child, index) => {
 // 	child.addEventListener("click", e => {
 // 		focusMainImg(child, index);
 // 	});
 // });
-function clickFocusImg(child, index, images, bullets) {
-	let galImages = images.querySelectorAll("img");
-	let calculated =
-		window.innerWidth / 3.5 - ((index - 1) * window.innerWidth) / 6;
-	//console.log(mainGalleryBulletsChildren);
-	//console.log(index);
-	bullets.forEach(bC => {
-		bC.classList.remove("active");
-	});
-	bullets[(index - 1) / 2].classList.add("active");
-	galImages.forEach(t => {
-		t.style.transform = `translateX(${calculated}px) scale(1)`;
-		t.style.opacity = "0.5";
-		t.addEventListener("hover", () => (t.style.opacity = "1"));
-	});
-
-	child.style.transform = `translateX(${calculated}px) scale(1.5)`;
-	child.style.opacity = "1";
-}
-
-// Data Analysis functionality
-const dataAnalysis = document.getElementById("dataNav");
-const dataAnalysisChildren = dataAnalysis.querySelectorAll("li");
-const dataContainer = document.querySelectorAll(".dataContainer");
-
-console.log(
-	"dataAnalysisChildren",
-	dataAnalysisChildren,
-	"dataContainer",
-	dataContainer
-);
-
-Array.from(dataAnalysisChildren).forEach((child, index) => {
-	child.addEventListener("click", () => {
-		//console.log("index", index);
-		dataAnalysisChildren.forEach(dC => {
-			dC.classList.remove("active");
-		});
-
-		dataContainer[index].scrollIntoView({
-			behavior: "smooth",
-			block: "center",
-		});
-		//navSelection.classList.toggle("active");
-
-		child.classList.add("active");
-	});
-});
 
 // console.log("dataAnalysisChildren", dataAnalysisChildren);
 // console.log("dataContainer", dataContainer);
@@ -332,95 +255,3 @@ Array.from(dataAnalysisChildren).forEach((child, index) => {
 
 // 	//console.log("oldScroll", oldScroll, "scrollY", scrollY);
 // };
-
-// Scrolling banners
-let banner = document.getElementById("banner");
-let banner2 = document.getElementById("banner2");
-let bannerHTML = banner.querySelectorAll("h3, span");
-let bannerHTML2 = banner2.querySelectorAll("h3, span");
-
-window.onscroll = () => {
-	let posBanner = banner.getBoundingClientRect();
-	//console.log(bannerHTML);
-	if (posBanner.top > 0 && posBanner.top < window.innerHeight) {
-		let calculated = (posBanner.top / window.innerHeight) * 400;
-		bannerHTML.forEach(bH => {
-			bH.style.transform = `translateX(-${calculated}%)`;
-		});
-		bannerHTML2.forEach(bH => {
-			bH.style.transform = `translateX(${calculated}%)`;
-		});
-	}
-};
-
-// FAQ functionality
-const FAQ = document.getElementById("FAQ");
-const questionsFAQ = FAQ.querySelectorAll("button");
-const arrowsFAQ = FAQ.querySelectorAll(".arrow");
-const answersFAQ = FAQ.querySelectorAll("h2");
-
-Array.from(questionsFAQ).forEach((question, index) => {
-	question.addEventListener("click", () => {
-		//console.log("index", index);
-		arrowsFAQ[index].classList.toggle("active");
-		answersFAQ[index].classList.toggle("active");
-		//answersFAQ[index].style.display = "none";
-	});
-});
-
-// Navbar functionality
-const navBar = document.getElementById("navBar").querySelector("div");
-const navSelection = document.getElementById("navSelection");
-const navSelectionItems = navSelection.querySelectorAll("li");
-
-const intro = document.getElementById("intro");
-const featuresPage = document.getElementById("featuresPage");
-const dataAnalysisPage = document.getElementById("dataAnalysisPage");
-const bannersNavPin = document.getElementById("bannersNavPin");
-const elenaPage = document.getElementById("elenaPage");
-const recurringRevenue = document.getElementById("recurringRevenue");
-//let itemPosition;
-function navScroll(item) {
-	// itemPosition = item.getBoundingClientRect().top;
-	// console.log("itemPosition", itemPosition);
-	// window.scrollTo({
-	// 	top: itemPosition,
-	// 	behavior: "smooth",
-	// });
-	item.scrollIntoView({ behavior: "smooth", block: "start" });
-	navSelection.classList.toggle("active");
-}
-navSelectionItems.forEach((item, index) => {
-	item.addEventListener("click", () => {
-		console.log(index, "clicked");
-		switch (index) {
-			case 0:
-				navScroll(intro);
-				break;
-			case 1:
-				navScroll(featuresPage);
-				break;
-			case 2:
-				navScroll(grayStar);
-				break;
-			case 3:
-				navScroll(bannersNavPin);
-				break;
-			case 4:
-				navScroll(elenaPage);
-				break;
-			case 5:
-				navScroll(recurringRevenue);
-				break;
-			case 6:
-				navScroll(FAQ);
-				break;
-			default:
-				console.log("something went wrong");
-				break;
-		}
-	});
-});
-navBar.addEventListener("click", () => {
-	navSelection.classList.toggle("active");
-});
