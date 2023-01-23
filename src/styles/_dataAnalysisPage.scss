@@ -1,4 +1,11 @@
 #dataAnalysisPage {
+	display: block;
+
+	.miniContainer {
+		h2 {
+			font-family: Figtree;
+		}
+	}
 	#grayStar {
 		background-image: url("../assets/GrayStar.svg");
 		background-size: 12vw 12vw;
@@ -56,13 +63,14 @@
 		top: 7vw;
 		color: white;
 		text-shadow: -3px 3px 0 #000, 3px 3px 0 #000, 3px -3px 0 #000;
-		font-size: 1vw;
+		font-size: 1.5vw;
 		padding-left: 3vw;
 		li {
 			list-style: none;
 			padding: 2vw;
 			position: relative;
 			cursor: pointer;
+			font-family: Figtree;
 		}
 		li::after {
 			content: "";
@@ -70,7 +78,7 @@
 			background-color: #5965ce;
 			opacity: 0;
 			width: 80%;
-			height: 5px;
+			height: 0.5vw;
 			left: 12%;
 			top: 80%;
 		}
@@ -79,7 +87,6 @@
 		}
 	}
 	.noflex {
-		display: block;
 	}
 	.dataContainer {
 		display: flex;
@@ -97,6 +104,7 @@
 			}
 			h2 {
 				font-size: 1vw;
+				font-family: Figtree;
 				text-align: justify;
 			}
 		}
@@ -112,7 +120,7 @@
 				bottom: 10vw;
 				margin: auto;
 				border: none;
-				border-radius: 25px;
+				border-radius: 5vw;
 				background-color: #ae33b6;
 				color: white;
 				font-size: 1vw;

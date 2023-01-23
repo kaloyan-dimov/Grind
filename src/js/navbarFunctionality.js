@@ -32,7 +32,7 @@ export default function navBarFunction() {
 					navScroll(featuresPage);
 					break;
 				case 2:
-					navScroll(grayStar);
+					navScroll(dataAnalysisPage);
 					break;
 				case 3:
 					navScroll(bannersNavPin);
